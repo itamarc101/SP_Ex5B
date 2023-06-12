@@ -72,6 +72,20 @@ void MagicalContainer::removeElement(int elem)
         ++itt;
     }
     
+    if(isPrime(elem))
+    {
+        auto iter = container_primes.begin();
+        while(iter != container_primes.end())
+        {
+            if(**iter == elem)
+            {
+                iter = container_primes.erase(iter);
+                break;
+            }
+            ++iter;
+        }
+    }
+    
     // if the element wasnt found in the container we throw error
     if(!flag) throw runtime_error("Element wasn't found in container!!");
 }
